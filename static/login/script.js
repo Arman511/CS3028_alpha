@@ -4,6 +4,7 @@ let error_paragraph = document.querySelector(".error");
 // Select the password field and eye icon
 const passwordField = document.getElementById('passwordField');
 const togglePassword = document.getElementById('togglePassword');
+const passwordIcon = document.getElementById('passwordIcon');
 
 // Initially hide the eye icon
 togglePassword.style.display = 'none';
@@ -24,7 +25,11 @@ togglePassword.addEventListener('click', function() {
     passwordField.type = type; // Change type to text or password
 
     // Change the eye icon to indicate visibility
-    togglePassword.textContent = type === 'password' ? '👁️' : '👁️‍🗨️'; // Change icon based on visibility
+    if (type === 'password') {
+        passwordIcon.src = "/static/icons/hide.png";  // Show "hide" icon
+    } else {
+        passwordIcon.src = "/static/icons/seen.png";  // Show "seen" icon
+    }
 });
 
 // Form submission logic
