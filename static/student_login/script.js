@@ -7,13 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault(); // Prevent form submission
         let formData = new FormData(form); // Collect form data
 
-        fetch("/user/login", {
+        fetch("/student/login", {
             method: "POST",
             body: formData,
         })
             .then(async (response) => {
                 if (response.ok) {
-                    window.location.href = "/"; // Redirect on successful login
+                    window.location.href = `/student/details/${formData.get(
+                        "student_id"
+                    )}`; // Redirect on successful login
                 } else if (response.status === 401 || response.status === 400) {
                     let errorResponse = await response.json(); // Parse JSON response
                     throw new Error(errorResponse.error); // Throw error with the extracted message

@@ -5,10 +5,10 @@
 
         <form class="login_form" name="login_form">
             <input
-                type="email"
-                name="email"
+                type="text"
+                name="student_id"
                 class="field"
-                placeholder="Email"
+                placeholder="Student Number (e.g. 52327765)"
                 required
             />
 
@@ -26,13 +26,10 @@
             <input type="submit" value="Log In" class="btn" />
         </form>
         <p class="center">
-            Don't have an account? <a href="/user/register">Register</a>
-        </p>
-        <p class="center">
-            Are you a student?
-            <a href="/student/login">Student Login</a>
+            Are you part of the placement team?
+            <a href="/user/login">Login</a>
         </p>
     </div>
-    <script src="/static/login/script.js"></script>
+    <script src="/static/student_login/script.js"></script>
 </div>
 {% endblock %}

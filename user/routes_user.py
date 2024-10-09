@@ -7,18 +7,16 @@ Routes:
     /user/login: Renders the login page.
     /user/login_attempt (POST): Attempts to log in a user.
 """
-from flask import redirect, render_template, session
+from flask import redirect, render_template, session, request
 from .models import User
 
 def add_user_routes(app):
-    @app.route('/user/register_attempt', methods=['POST'])
-    def register_user_attempt():
-        """Registers a new user."""
-        return User().register()
-
-    @app.route('/user/register')
+    """Add user routes."""
+    @app.route('/user/register', methods=['GET', 'POST'])
     def register():
         """Give page to register a new user."""
+        if request.method == 'POST':
+            return User().register()
         return render_template('register.html')
 
     @app.route('/user/signout')
@@ -26,14 +24,18 @@ def add_user_routes(app):
         """Signs out the current user."""
         return User().signout()
 
-    @app.route('/user/login')
+    @app.route('/user/login', methods=['GET', 'POST'])
     def login():
         """Gives login form to user."""
+        if request.method == 'POST':
+            return User().login()
         if "logged_in" in session:
             return redirect('/')
         return render_template('login.html')
-
-    @app.route('/user/login_attempt', methods=['POST'])
-    def login_user_attempt():
-        """Processes login form."""
-        return User().login()
+    
+    @app.route('/user/change_password', methods=['GET', 'POST'])
+    def change_password():
+        """Change user password."""
+        if request.method == 'POST':
+            return User().change_password()
+        return render_template('change_password.html')

@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="card-wrapper">
+    <div class="card">
+        <h1 class="center">Upload</h1>
+
+        <form id="searchForm">
+            <div
+                class="form-group"
+                style="display: flex; justify-content: space-between"
+            >
+                <div style="flex: 1; margin-right: 10px">
+                    <label for="first_name">First Name:</label>
+                    <input
+                        type="text"
+                        id="first_name"
+                        name="first_name"
+                        class="form-control"
+                    />
+                </div>
+                <div style="flex: 1; margin-right: 10px">
+                    <label for="last_name">Last Name:</label>
+                    <input
+                        type="text"
+                        id="last_name"
+                        name="last_name"
+                        class="form-control"
+                    />
+                </div>
+                <div style="flex: 1; margin-right: 10px">
+                    <label for="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                    />
+                </div>
+                <div style="flex: 1; margin-right: 10px">
+                    <label for="student_id">Student Number:</label>
+                    <input
+                        type="text"
+                        id="student_id"
+                        name="student_id"
+                        class="form-control"
+                    />
+                </div>
+                <div style="flex: 1; margin-right: 10px">
+                    <label for="course">Course:</label>
+                    <select id="course" name="course" class="form-control">
+                        {% for course in courses %}
+                        <option value="{{ course }}">{{ course }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div style="flex: 1">
+                    <label for="skills">Skills:</label>
+                    <select
+                        id="skills"
+                        name="skills"
+                        class="form-control"
+                        multiple
+                    >
+                        {% for skill in skills %}
+                        <option value="{{ skill }}">{{ skill }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div
+                class="form-group"
+                style="text-align: center; margin-top: 20px"
+            >
+                <p class="error error--hidden"></p>
+                <input type="submit" value="Search" class="btn" />
+            </div>
+        </form>
+
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Student Number</th>
+                        <th>Course</th>
+                        <th>Skills</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="student-table"></tbody>
+            </table>
+        </div>
+        <script src="/static/upload/script.js"></script>
+    </div>
+
+    {% endblock %}
+</div>

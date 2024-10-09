@@ -7,7 +7,7 @@ def test_create_app():
     url = "/"
     
     response = client.get(url)
-    expected = b'<!doctype html>\n<html lang=en>\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to the target URL: <a href="/user/login">/user/login</a>. If not, click the link.\n'
+    expected = b'<!doctype html>\n<html lang=en>\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to the target URL: <a href="/student/login">/student/login</a>. If not, click the link.\n'
     assert response.get_data() == expected
     assert response.status_code == 302
     
