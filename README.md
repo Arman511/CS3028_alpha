@@ -24,7 +24,7 @@ This project is part of the CS3028 course. It includes various scripts and modul
         ```
     - On Windows(powershell):
         ```
-        .\venv\Scripts\activate.ps1
+        ./venv/Scripts/activate.ps1
         ```
 4. Install packages
     ``` 
