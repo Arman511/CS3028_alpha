@@ -11,6 +11,7 @@ import sys
 import pymongo
 from dotenv import load_dotenv
 load_dotenv()
+
 if os.getenv("IS_GITHUB_ACTIONS") == "False":
     client = pymongo.MongoClient(os.getenv(("DB_LOGIN")))
 else:
