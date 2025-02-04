@@ -1,6 +1,6 @@
 # requirements.txt
 
-astroid==3.3.5
+astroid==3.3.8
 black==24.10.0
 blinker==1.8.2
 cachelib==0.9.0
