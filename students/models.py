@@ -272,10 +272,10 @@ class Student:
                         ),
                         400,
                     )
-                # database.students_collection.delete_one(
-                #     {"student_id": temp_student["student_id"]}
-                # )
-                # database.students_collection.insert_one(temp_student)
+                database.students_collection.delete_one(
+                    {"student_id": temp_student["student_id"]}
+                )
+                database.students_collection.insert_one(temp_student)
 
             return jsonify({"message": f"{len(students)} students imported"}), 200
         except (
