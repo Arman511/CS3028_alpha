@@ -52,7 +52,7 @@ regex==2024.11.6
 six==1.16.0
 tomli==2.0.2
 tomlkit==0.13.2
-tqdm==4.66.5
+tqdm==4.67.1
 types-passlib==1.7.7.20240819
 types-pytz==2024.2.0.20241003
 typing_extensions==4.12.2
